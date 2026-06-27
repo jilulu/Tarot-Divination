@@ -38,7 +38,6 @@ RUN npm ci --only=production && npm cache clean --force
 
 # Copy static assets and built distribution files from builder stage
 COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/public ./public
 
 # Ensure the uploads directory exists and has correct ownership for the non-root node user
 RUN mkdir -p public/uploads && chown -R node:node /app
